@@ -84,108 +84,117 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-7xl mx-auto p-6">
+      <main className="relative z-10 max-w-6xl mx-auto p-6">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent neon-glow">
-            AVATAR FORGE
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            SPACEBADDIE AVATAR STUDIO
           </h2>
-          <p className="text-xl md:text-2xl text-cyan-300 mb-8 max-w-3xl mx-auto">
-            Craft legendary gaming avatars with real-time effects and AI-powered controls
+          <p className="text-lg md:text-xl text-cyan-300 mb-6 max-w-2xl mx-auto">
+            Create badass gaming avatars with real-time controls & AI effects
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-full px-6 py-2 text-cyan-300">
-              ⚡ Real-Time Effects
-            </div>
-            <div className="bg-purple-500/10 border border-purple-500/30 rounded-full px-6 py-2 text-purple-300">
-              🤖 AI Suggestions
-            </div>
-            <div className="bg-pink-500/10 border border-pink-500/30 rounded-full px-6 py-2 text-pink-300">
-              🎮 Gaming Optimized
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <span className="bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1 text-cyan-300 text-sm">
+              ⚡ LIVE EFFECTS
+            </span>
+            <span className="bg-purple-500/20 border border-purple-500/40 rounded-full px-4 py-1 text-purple-300 text-sm">
+              🎮 GAMER FOCUSED
+            </span>
+            <span className="bg-pink-500/20 border border-pink-500/40 rounded-full px-4 py-1 text-pink-300 text-sm">
+              🚀 INSTANT EXPORT
+            </span>
+          </div>
+        </div>
+
+        {/* Main Avatar Display - CENTERED & PROMINENT */}
+        <div className="mb-8">
+          <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-cyan-500/30 rounded-3xl p-8 shadow-2xl shadow-cyan-500/10">
+            <AvatarStudio state={studioState} />
+
+            {/* Quick Actions - Below Canvas */}
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
+              <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 px-5 py-2 rounded-xl font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-cyan-500/25 text-sm">
+                🎬 RECORD
+              </button>
+              <button className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 px-5 py-2 rounded-xl font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-purple-500/25 text-sm">
+                📸 SNAPSHOT
+              </button>
+              <button className="bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 px-5 py-2 rounded-xl font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-green-500/25 text-sm">
+                💾 SAVE
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Studio Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Main Avatar Display */}
-          <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 cyber-grid">
-              <AvatarStudio state={studioState} />
+        {/* Control Panels - Horizontal Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <CameraControls
+            camera={studioState.camera}
+            onChange={(camera) => setStudioState(prev => ({ ...prev, camera }))}
+          />
 
-              {/* Quick Actions */}
-              <div className="mt-6 flex flex-wrap gap-3">
-                <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-cyan-500/25">
-                  📹 Record Video
-                </button>
-                <button className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-purple-500/25">
-                  📸 Screenshot
-                </button>
-                <button className="bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-green-500/25">
-                  💾 Save Avatar
-                </button>
+          <EffectPanel
+            effects={studioState.effects}
+            onChange={(effects) => setStudioState(prev => ({ ...prev, effects }))}
+          />
+
+          <LensSelector
+            lens={studioState.lens}
+            onChange={(lens) => setStudioState(prev => ({ ...prev, lens }))}
+          />
+        </div>
+
+        {/* MASSIVE AUTOMATE CTA - CENTER STAGE */}
+        <div className="text-center py-12 px-6">
+          <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-cyan-500/30 rounded-3xl p-8 mb-8">
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+              🎯 READY TO GO PRO?
+            </h3>
+            <p className="text-lg md:text-xl text-cyan-300 mb-6 max-w-3xl mx-auto">
+              Transform your creativity into automated content machines. Join creators using AI to scale their gaming empires.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="bg-green-500/20 border border-green-500/40 rounded-full px-4 py-2 text-green-300 text-sm">
+                🤖 AI Automation
+              </div>
+              <div className="bg-blue-500/20 border border-blue-500/40 rounded-full px-4 py-2 text-blue-300 text-sm">
+                📈 Scale Instantly
+              </div>
+              <div className="bg-purple-500/20 border border-purple-500/40 rounded-full px-4 py-2 text-purple-300 text-sm">
+                ⚡ Pro Tools
               </div>
             </div>
-          </div>
 
-          {/* Control Panel */}
-          <div className="space-y-6">
-            <CameraControls
-              camera={studioState.camera}
-              onChange={(camera) => setStudioState(prev => ({ ...prev, camera }))}
-            />
+            <a
+              href="https://xom3.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-600 hover:via-purple-600 hover:to-pink-600 text-white font-black text-3xl md:text-4xl px-16 py-8 rounded-3xl shadow-2xl shadow-purple-500/50 transform hover:scale-110 transition-all duration-300 hover:shadow-purple-500/70 animate-pulse border-4 border-white/20"
+            >
+              🚀 AUTOMATE NOW 🚀
+            </a>
 
-            <EffectPanel
-              effects={studioState.effects}
-              onChange={(effects) => setStudioState(prev => ({ ...prev, effects }))}
-            />
-
-            <LensSelector
-              lens={studioState.lens}
-              onChange={(lens) => setStudioState(prev => ({ ...prev, lens }))}
-            />
-          </div>
-        </div>
-
-        {/* AUTOMATE Call-to-Action */}
-        <div className="mt-8 text-center">
-          <div className="mb-4">
-            <h3 className="text-2xl font-bold text-cyan-400 mb-2">Ready to Scale Your Content?</h3>
-            <p className="text-cyan-300/70 max-w-2xl mx-auto">
-              Turn your creative vision into automated content pipelines with AI-powered orchestration
+            <p className="text-cyan-400 text-lg mt-6 font-semibold">
+              → xom3.io ← Your Next Level
             </p>
           </div>
-          <a
-            href="https://xom3.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-600 hover:via-purple-600 hover:to-pink-600 text-white font-black text-2xl px-12 py-6 rounded-2xl shadow-2xl shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 hover:shadow-purple-500/70 animate-pulse"
-          >
-            🚀 AUTOMATE NOW 🚀
-          </a>
-          <p className="text-cyan-400/60 text-sm mt-4">
-            Join the future of content creation →
-          </p>
         </div>
 
-        {/* Stats Footer */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-cyan-400">∞</div>
-            <div className="text-sm text-cyan-300/70">Avatars Created</div>
+        {/* Custom Footer */}
+        <div className="text-center py-8 border-t border-cyan-500/20">
+          <div className="text-cyan-400/60 text-sm mb-4">
+            Built by creators, for creators. SpaceBaddie - Where gaming meets automation.
           </div>
-          <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-purple-400">24/7</div>
-            <div className="text-sm text-purple-300/70">Live Studio</div>
-          </div>
-          <div className="bg-gradient-to-br from-green-500/10 to-teal-500/10 border border-green-500/20 rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-green-400">AI</div>
-            <div className="text-sm text-green-300/70">Powered</div>
-          </div>
-          <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-orange-400">⚡</div>
-            <div className="text-sm text-orange-300/70">Real-Time</div>
+          <div className="flex justify-center items-center gap-4 text-xs text-cyan-300/50">
+            <span>⚡ Live Studio</span>
+            <span>•</span>
+            <span>🎮 Gaming First</span>
+            <span>•</span>
+            <span>🤖 AI Powered</span>
+            <span>•</span>
+            <span>🚀 Ready to Scale</span>
           </div>
         </div>
       </main>
