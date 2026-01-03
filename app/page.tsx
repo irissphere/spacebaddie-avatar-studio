@@ -148,6 +148,27 @@ export default function Home() {
           </div>
         </div>
 
+        {/* AUTOMATE Call-to-Action */}
+        <div className="mt-8 text-center">
+          <div className="mb-4">
+            <h3 className="text-2xl font-bold text-cyan-400 mb-2">Ready to Scale Your Content?</h3>
+            <p className="text-cyan-300/70 max-w-2xl mx-auto">
+              Turn your creative vision into automated content pipelines with AI-powered orchestration
+            </p>
+          </div>
+          <a
+            href="https://xom3.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-600 hover:via-purple-600 hover:to-pink-600 text-white font-black text-2xl px-12 py-6 rounded-2xl shadow-2xl shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 hover:shadow-purple-500/70 animate-pulse"
+          >
+            🚀 AUTOMATE NOW 🚀
+          </a>
+          <p className="text-cyan-400/60 text-sm mt-4">
+            Join the future of content creation →
+          </p>
+        </div>
+
         {/* Stats Footer */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl p-4 text-center">
