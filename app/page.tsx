@@ -168,16 +168,14 @@ export default function Home() {
             </div>
 
             <a
-              href="https://xom3.io"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/spacebaddie/automation"
               className="inline-block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-600 hover:via-purple-600 hover:to-pink-600 text-white font-black text-3xl md:text-4xl px-16 py-8 rounded-3xl shadow-2xl shadow-purple-500/50 transform hover:scale-110 transition-all duration-300 hover:shadow-purple-500/70 animate-pulse border-4 border-white/20"
             >
               🚀 AUTOMATE NOW 🚀
             </a>
 
             <p className="text-cyan-400 text-lg mt-6 font-semibold">
-              → xom3.io ← Your Next Level
+              Connect your socials &amp; automate content
             </p>
           </div>
         </div>
