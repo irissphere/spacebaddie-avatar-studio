@@ -7,12 +7,30 @@ function hasCredentials(...envVars: (string | undefined)[]): boolean {
   return envVars.every((v) => v !== undefined && v !== '')
 }
 
-type Provider = OAuthConfig<Record<string, unknown>> | ReturnType<typeof GoogleProvider> | ReturnType<typeof TwitterProvider>
+/**
+ * Resolve the canonical site URL, checking NEXTAUTH_URL first,
+ * then falling back to Vercel's auto-set VERCEL_URL.
+ */
+export function resolveSiteUrl(): string | undefined {
+  if (process.env.NEXTAUTH_URL) return process.env.NEXTAUTH_URL
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
+  return undefined
+}
+
+type Provider =
+  | OAuthConfig<Record<string, unknown>>
+  | ReturnType<typeof GoogleProvider>
+  | ReturnType<typeof TwitterProvider>
 
 function buildProviders(): Provider[] {
   const providers: Provider[] = []
 
-  if (hasCredentials(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET)) {
+  if (
+    hasCredentials(
+      process.env.GOOGLE_CLIENT_ID,
+      process.env.GOOGLE_CLIENT_SECRET
+    )
+  ) {
     providers.push(
       GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -29,7 +47,12 @@ function buildProviders(): Provider[] {
     )
   }
 
-  if (hasCredentials(process.env.TWITTER_CLIENT_ID, process.env.TWITTER_CLIENT_SECRET)) {
+  if (
+    hasCredentials(
+      process.env.TWITTER_CLIENT_ID,
+      process.env.TWITTER_CLIENT_SECRET
+    )
+  ) {
     providers.push(
       TwitterProvider({
         clientId: process.env.TWITTER_CLIENT_ID!,
@@ -39,7 +62,12 @@ function buildProviders(): Provider[] {
     )
   }
 
-  if (hasCredentials(process.env.TIKTOK_CLIENT_KEY, process.env.TIKTOK_CLIENT_SECRET)) {
+  if (
+    hasCredentials(
+      process.env.TIKTOK_CLIENT_KEY,
+      process.env.TIKTOK_CLIENT_SECRET
+    )
+  ) {
     providers.push({
       id: 'tiktok',
       name: 'TikTok',
@@ -67,7 +95,12 @@ function buildProviders(): Provider[] {
     })
   }
 
-  if (hasCredentials(process.env.INSTAGRAM_CLIENT_ID, process.env.INSTAGRAM_CLIENT_SECRET)) {
+  if (
+    hasCredentials(
+      process.env.INSTAGRAM_CLIENT_ID,
+      process.env.INSTAGRAM_CLIENT_SECRET
+    )
+  ) {
     providers.push({
       id: 'instagram',
       name: 'Instagram',
