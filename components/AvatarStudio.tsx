@@ -233,3 +233,10 @@ export function AvatarStudio({ state }: AvatarStudioProps) {
     </div>
   )
 }
+
+
+
+
+
+
+

@@ -76,7 +76,7 @@ export default function Home() {
           <div className="flex items-center space-x-4">
             <div className="text-right">
               <div className="text-sm text-cyan-300">Live Studio</div>
-              <div className="text-xs text-cyan-400/60">spacebaddy.com</div>
+              <div className="text-xs text-cyan-400/60">spacebaddie.com</div>
             </div>
             <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>

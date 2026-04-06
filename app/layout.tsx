@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SpaceBaddie Avatar Studio',
     description: 'Create epic gaming avatars with interactive controls',
-    url: 'https://spacebaddy.com',
+    url: 'https://spacebaddie.com',
     siteName: 'SpaceBaddie',
     images: [
       {
-        url: 'https://spacebaddy.com/og-image.jpg',
+        url: 'https://spacebaddie.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'SpaceBaddie Avatar Studio',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SpaceBaddie Avatar Studio',
     description: 'Create epic gaming avatars with interactive controls',
-    images: ['https://spacebaddy.com/og-image.jpg'],
+    images: ['https://spacebaddie.com/og-image.jpg'],
   },
 }
 
@@ -41,3 +41,10 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
+
+
+
+

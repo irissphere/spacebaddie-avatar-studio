@@ -40,7 +40,7 @@ npm start
 
 ## 🎯 Live Demo
 
-Visit [spacebaddy.com](https://spacebaddy.com) for the live interactive studio.
+Visit [spacebaddie.com](https://spacebaddie.com) for the live interactive studio.
 
 ## 🎨 Design Philosophy
 
@@ -81,3 +81,10 @@ This app is optimized for Vercel deployment with minimal configuration required.
 ## 📄 License
 
 Built for SpaceBaddie - Interactive Avatar Creation Platform
+
+
+
+
+
+
+

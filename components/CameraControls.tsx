@@ -151,3 +151,10 @@ export function CameraControls({ camera, onChange }: CameraControlsProps) {
     </div>
   )
 }
+
+
+
+
+
+
+

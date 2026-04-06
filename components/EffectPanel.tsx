@@ -144,3 +144,10 @@ export function EffectPanel({ effects, onChange }: EffectPanelProps) {
     </div>
   )
 }
+
+
+
+
+
+
+
